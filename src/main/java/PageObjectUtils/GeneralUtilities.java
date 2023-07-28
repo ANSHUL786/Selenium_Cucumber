@@ -18,6 +18,8 @@ public class GeneralUtilities {
 		this.driver=driver;
 	}
 
+	By cartIcon=By.cssSelector("a.cart-icon img");
+	
 	public void waitUntilElementVisible(By ele,WebDriver driver) {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(ele));
@@ -34,5 +36,9 @@ public class GeneralUtilities {
 	
 	public void SwitchToParent() {
 		driver.switchTo().window(parentId);
+	}
+	
+	public void goToCart() {
+		driver.findElement(cartIcon).click();
 	}
 }

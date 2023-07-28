@@ -34,6 +34,16 @@ public class HomePageStepdefinition {
 
 	}
 
+	@When("^User select product with (.+) and click on to cart button$")
+	public void user_select_product_with_name1_and_click_on_to_cart_button(String productName) {
+		testSetup.pom.getHomePage().addProductToCart(productName);
+		
+	}
+	@Then("^Product with (.+) is added in cart panel$")
+	public void product_with_name1_is_added_in_cart_panel(String productName) {
+	   testSetup.pom.getHomePage().goToCart();
+	   testSetup.pom.getHomePage().verifyItemInCart(productName);
+	}
 	
 
 }
